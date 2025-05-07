@@ -32,9 +32,9 @@ public class JavaEqualityTests {
     
     @Test
     void objectValueEqualityWithEquals() {
-        Dimensions2D coord1 = new Dimensions2D(5, 10);
-        Dimensions2D coord2 = new Dimensions2D(5, 10);
-        Dimensions2D coord3 = new Dimensions2D(10, 5);
+        Dimension2D coord1 = new Dimension2D(5, 10);
+        Dimension2D coord2 = new Dimension2D(5, 10);
+        Dimension2D coord3 = new Dimension2D(10, 5);
         
         // Different objects with the same values
         assertFalse(coord1 == coord2);     // Not the same reference
@@ -78,7 +78,7 @@ public class JavaEqualityTests {
         // Java caches Integer objects for values -128 to 127
         assertTrue(int1 == int2);      // Same cached object for small values
         assertFalse(int3 == int4);     // Different objects for larger values
-        
+
         // equals always compares values
         assertTrue(int1.equals(int2));
         assertTrue(int3.equals(int4));
@@ -101,7 +101,7 @@ public class JavaEqualityTests {
         // obj.equals(null) would throw NullPointerException
         
         // But null checks in proper equals methods are safe
-        Dimensions2D coord = new Dimensions2D(5, 10);
+        Dimension2D coord = new Dimension2D(5, 10);
         assertFalse(coord.equals(null));
     }
     
@@ -133,6 +133,7 @@ public class JavaEqualityTests {
         assertTrue(primitiveInt == boxedInt);
         
         // This auto-unboxes boxedInt for the comparison
+        // Equivalent to primitiveInt == boxedInt.intValue()
         // Equivalent to primitiveInt == boxedInt.intValue()
     }
     
